@@ -5,7 +5,7 @@ import {v4 as uuidv4} from 'uuid';
 
 function App() {
   const [role, setRole] = useState('dev');
-  const [employees, setEmployee] = useState(
+  const [employees, setEmployees] = useState(
     [ 
       {id: 1, name : "Leo Luo", role : "President", img : "https://i.mydramalist.com/2xOeRc.jpg"},
       {id: 2, name : "Gao Yu", role : "Chief Executive Officer", img : "https://i.mydramalist.com/RbKWV_5f.jpg"},
@@ -18,7 +18,13 @@ function App() {
   )
 
   function updateEmployee(id, newName, newRole){
-    console.log('updateEmployee inside of app.js');
+      const updatedEmployees = employees.map((employee) => {
+        if (id == employee.id){
+          return {...employee, name: newName, role: newRole}
+        }
+        return employee
+      });
+      setEmployees(updatedEmployees);
   }
 
   const showEmployees = true;
