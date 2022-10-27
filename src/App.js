@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './index.css';
 import Employee from './components/Employee';
 import {v4 as uuidv4} from 'uuid';
+import AddEmployee from './components/AddEmployee';
 
 function App() {
   const [role, setRole] = useState('dev');
@@ -50,6 +51,7 @@ function App() {
                   );
                 })}
               </div>
+              <AddEmployee />
           </>
           ):(
             <p>you cannot see the Employees</p>
