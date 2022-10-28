@@ -9,6 +9,9 @@ function AddEmployee(props) {
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
 
+  const [img, setImg] = useState('');
+
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -29,11 +32,10 @@ function AddEmployee(props) {
         </Modal.Header>
         <Modal.Body>
         <form onSubmit={(e) => {
-                  handleClose();
                   e.preventDefault();
                   console.log('hello from edit Employee');
                   console.log(props.id, name, role);
-                  props.updateEmployee(props.id, name, role);
+                  props.newEmployee(name, role, img);
         }}
               id='editmodal' className="w-full max-w-sm">
             <div className="md:flex md:items-center mb-6">
@@ -81,8 +83,8 @@ function AddEmployee(props) {
                        id="img" 
                        type="text"
                        placeholder='ex. google.com' 
-                       value={role}
-                       onChange={(e) => {setRole(e.target.value);
+                       value={img}
+                       onChange={(e) => {setImg(e.target.value);
                       }}
                     />
                 </div>
@@ -91,7 +93,7 @@ function AddEmployee(props) {
         </Modal.Body>
         <Modal.Footer>
           <button className='bg-slate-300 hover:bg-slate-500 text-white font-bold py-2 px-4 rounded' onClick={handleClose}>Close</button>
-          <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' form="editmodal">Update</button>
+          <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={handleClose} form="editmodal">Add</button>
         </Modal.Footer>
       </Modal>
     </>
