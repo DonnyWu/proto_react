@@ -33,6 +33,9 @@ function AddEmployee(props) {
         <Modal.Body>
         <form onSubmit={(e) => {
                   e.preventDefault();
+                  setImg('');
+                  setName('');
+                  setRole('');
                   console.log('hello from edit Employee');
                   console.log(props.id, name, role);
                   props.newEmployee(name, role, img);
