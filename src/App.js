@@ -3,6 +3,7 @@ import './index.css';
 import Employee from './components/Employee';
 import {v4 as uuidv4} from 'uuid';
 import AddEmployee from './components/AddEmployee';
+import EditEmployee from './components/EditEmployee';
 
 function App() {
   const [role, setRole] = useState('dev');
@@ -52,12 +53,21 @@ function App() {
               }/>
               <div className="flex flex-wrap justify-center">
                 {employees.map((employee) => {
+                    const editEmployee = (<EditEmployee
+                    id={employee.id}
+                    name={employee.name}
+                    role={employee.role}
+                    updateEmployee={updateEmployee}
+                  />
+                  )
+
                   return (
                     <Employee key= {employee.id}
                               id={employee.id} 
                               name = {employee.name} 
                               role = {employee.role} 
-                              img= {employee.img} updateEmployee={updateEmployee} />
+                              img= {employee.img} 
+                              editEmployee={editEmployee} />
                   );
                 })}
               </div>
