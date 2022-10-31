@@ -19,10 +19,10 @@ function App() {
     ]
   )
 
-  function updateEmployee(id, newName, newRole){
+  function updateEmployee(id, newName, newRole, newImg){
       const updatedEmployees = employees.map((employee) => {
         if (id == employee.id){
-          return {...employee, name: newName, role: newRole}
+          return {...employee, name: newName, role: newRole, img: newImg}
         }
         return employee
       });
@@ -57,6 +57,7 @@ function App() {
                     id={employee.id}
                     name={employee.name}
                     role={employee.role}
+                    img = {employee.img}
                     updateEmployee={updateEmployee}
                   />
                   )

@@ -17,7 +17,7 @@ function Employee(props){
 
           
 
-          {props.EditEmployee}
+          {props.editEmployee}
         </div>
       </div>
     );
